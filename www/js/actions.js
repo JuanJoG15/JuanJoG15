@@ -23,6 +23,7 @@ function guarda_doc()
   }
   localStorage.setItem(data.tipo_doc+"-"+id,json_info);
   $("#nuevo_doc").reset();
+  $(".sub_form, .btn_guardar").hide();
   alert("El documento ha sido guardado");
   to("panel");
 }
