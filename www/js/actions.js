@@ -39,7 +39,7 @@ function listar()
     {
       info = JSON.parse(localStorage[key]);
       console.log(key);
-      html += '<li><a href="#view" onclick="view(\''+key+'\')">'+tipos[info["tipo_doc"]]+key.split("-")[1]+'</a></li>';
+      html += '<li><a href="#view" onclick="view(\''+key+'\')">'+tipos[info["tipo_doc"]]+" "+key.split("-")[1]+'</a></li>';
     }
   }
   html += '</ul>';
