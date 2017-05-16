@@ -1,0 +1,228 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+	<title> SIDIP </title>
+	<link href="jquerymobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  	<link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+	
+</head> 
+<body> 
+
+<div data-role="page" id="login" class="pagina">
+	<div data-role="header" class="home_header">
+		<h1>SIDIP</h1>
+	</div>
+	<div data-role="main" class="ui-content">
+    <div class="login">
+      <img src="img/sales_icon.png" alt="">
+      <div class="center">Sistema Inteligente De Información Personal<br><br></div>
+      <form action="javascript:login();" id="login_form">
+        <div class="login_input">
+          <div class="login_line bottom_line">
+            <div class="login_icon"><span class="fa fa-user"></span></div>
+            <div class="in_area"><input type="text" name="user" placeholder="nombre de usuario"></div>
+          </div>
+          <div class="login_line">
+            <div class="login_icon"><span class="fa fa-key"></span></div>
+            <div class="in_area"><input type="password" name="password" placeholder="contraseña"></div>
+          </div>
+        </div>
+        <button class="ui-btn btn_login">Iniciar sesión</button>
+      </form>
+      <div id="login_fail"></div>
+    </div>
+	</div>
+</div>
+
+<div data-role="page" id="panel" class="pagina">
+	<div data-role="header" class="std_header">
+		<h1><a href="#leftpanel3"><span class="fa fa-bars"></span> SIDIP</a></h1>
+	</div>
+	<div data-role="main" class="ui-content">
+		<div id="interfaz_de_venta">
+			<div class="add_new">
+				<a href="#agregar" class="add_new_icon">
+					<img src="img/add_icon.png">
+				</a>
+			</div>
+			<div class="add_new_icons">
+				<a href="#lista" class="mini_new" onclick="listar();">
+					<span class="fa fa-list"></span> Ver mis documentos
+				</a>
+			</div>
+			<div class="add_new_icons">
+				<a href="#acerca" class="mini_new">
+					<span class="fa fa-question"></span> Acerca de SIDIP
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="agregar" class="pagina">
+	<div data-role="header" class="green_header">
+		<h1>
+			Agregar documento
+		</h1>
+		<a href="#panel" class="h_link"><span class="fa fa-arrow-left"></span></a>
+	</div>
+	<div data-role="main" class="ui-content no_padding">
+		<div class="contenido">
+			<form id="nuevo_doc" action="javascript:guarda_doc()">
+				<label for="tipo_doc" class="label">Tipo de documento</label>
+				<select name="tipo_doc" id="tipo_doc" onchange="form_to()">
+					<option value="0">-Seleccionar-</option>
+					<option value="1">Tarjeta de identidad</option>
+					<option value="2">Tarjeta bancaria</option>
+				</select>
+				<div class="sub_form noshow" id="sub_1">
+					<label for="sub_1_numero">Número:</label>
+					<input type="text" name="sub_1_numero" id="sub_1_numero" value="">
+					<label for="sub_1_sangre">Tipo de sangre:</label>
+					<select name="sub_1_sangre" id="sub_1_sangre">
+						<option value="A+">A+</option>
+						<option value="A-">A-</option>
+						<option value="B+">B+</option>
+						<option value="B-">B-</option>
+						<option value="AB+">AB+</option>
+						<option value="AB-">AB-</option>
+						<option value="O+">O+</option>
+						<option value="O-">O-</option>
+					</select>
+					<label for="sub_1_nacimiento">Fecha de nacimiento:</label>
+					<input type="date" name="sub_1_nacimiento" id="sub_1_nacimiento" value="">
+					<label for="sub_1_nombre">Nombre:</label>
+					<input type="text" name="sub_1_nombre" id="sub_1_nombre" value="">
+					<label for="sub_1_exp">Fecha de expedición:</label>
+					<input type="date" name="sub_1_exp" id="sub_1_exp" value="">
+					<label for="sub_1_lugar_nac">Lugar de nacimiento:</label>
+					<input type="text" name="sub_1_lugar_nac" id="sub_1_lugar_nac" value="">
+					<label for="sub_1_sexo">Sexo:</label>
+					<select name="sub_1_sexo" id="sub_1_sexo">
+						<option value="Hombre">Hombre</option>
+						<option value="Mujer">Mujer</option>
+					</select>
+					<label for="sub_1_foto">Foto:</label>
+					<input type="text" name="sub_1_foto" id="sub_1_foto" value="">
+					<button onclick="foto()">Buscar</button>
+				</div>
+				<div class="sub_form noshow" id="sub_2">
+					<label for="sub_2_numero">Número de la tarjeta:</label>
+					<input type="text" name="sub_2_numero" id="sub_2_numero" value="">
+					<label for="sub_2_banco">Banco:</label>
+					<input type="text" name="sub_2_banco" id="sub_2_banco" value="">
+					<label for="sub_2_banco">Expira en:</label>
+					<input type="text" name="sub_2_banco" id="sub_2_banco" value="">
+					<label for="sub_2_expira">Expira en:</label>
+					<input type="text" name="sub_2_expira" id="sub_2_expira" value="">
+					<label for="sub_2_nombre">Nombre:</label>
+					<input type="text" name="sub_2_nombre" id="sub_2_nombre" value="">
+					<label for="sub_2_ccv2">CCV2:</label>
+					<input type="text" name="sub_2_ccv2" id="sub_2_ccv2" value="">
+				</div>
+				<div class="btn_guardar noshow">
+					<button class="ui-shadow ui-btn ui-corner-all">Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="lista" class="pagina">
+	<div data-role="header" class="green_header">
+		<h1>
+			Lista de documentos
+		</h1>
+		<a href="#panel" class="h_link"><span class="fa fa-arrow-left"></span></a>
+	</div>
+	<div data-role="main" class="ui-content no_padding">
+		<div class="" id="lista_docs">
+			
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="view" class="pagina">
+	<div data-role="header" class="green_header">
+		<h1>
+			Datos del documento
+		</h1>
+		<a href="#panel" class="h_link"><span class="fa fa-arrow-left"></span></a>
+	</div>
+	<div data-role="main" class="ui-content no_padding">
+		<div class="" id="datos_doc">
+			<div id="preform_1" class="noshow preform">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider" id="tipo"></li>
+					<li><h2>Número</h2><p><strong id="view_sub_1_numero"></strong></p></li>
+					<li><h2>Tipo de sangre</h2><p><strong id="view_sub_1_sangre"></strong></p></li>
+					<li><h2>Fecha de nacimiento</h2><p><strong id="view_sub_1_nacimiento"></strong></p></li>
+					<li><h2>Nombre</h2><p><strong id="view_sub_1_nombre"></strong></p></li>
+					<li><h2>Fecha de expedición</h2><p><strong id="view_sub_1_exp"></strong></p></li>
+					<li><h2>Lugar de nacimiento</h2><p><strong id="view_sub_1_lugar_nac"></strong></p></li>
+					<li><h2>Sexo</h2><p><strong id="view_sub_1_sexo"></strong></p></li>
+					<li><h2>Foto</h2><p><strong id="view_sub_1_foto"></strong></p></li>
+				</ul>
+				<div style="text-align: right;">
+					<button class="ui-btn ui-btn-inline" onclick="eliminar()">Eliminar</button>
+					<input type="hidden" name="id_eliminar" id="id_eliminar" value="">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="acerca" class="pagina">
+	<div data-role="header" class="green_header">
+		<h1>
+			Acerca de SIDIP
+		</h1>
+		<a href="#panel" class="h_link"><span class="fa fa-arrow-left"></span></a>
+	</div>
+	<div data-role="main" class="ui-content no_padding">
+		<div class="contenido" style="text-align: justify;">
+			<div style="text-align: center; margin:10px">
+				<img src="img/sales_icon.png" alt=""><br>
+				S.I.D.I.P (Sistema Inteligente De Información Personal)
+			</div>
+			
+			<br><br>
+			Es un proyecto desarrollado por juan José Garcia y Santiago Franco del Colegio Liceo Francisco Restrepo Molina.
+			<br><br>
+			Este proyecto busca crear un dispositivo y una aplicación donde cualquier persona va poder almacenar todo tipo de documentos así sustituyéndolo de manera física. 
+			<br><br>
+			OBJETIVOS:
+			<br><br>
+			- Reducir las altas cantidades de papel y plástico producidas por la creación de estos documentos físicos así ayudando a la reducción de la contaminación producías por la creación de estos documentos.
+			<br><br>
+			- Disminuir los índices de robo y perdida de documentos, la falsificación de documentos y los fraudes electrónicos que sus cifras han ido aumentando de una manera muy grande en los últimos años debido a que no se ha echo nada efectivo para solucionarlo.
+			<br><br>
+			- Reducir los tiempos de respuesta de los servicios públicos como de salud y de seguridad ayudándoles con una administración y manejo de la información de los usuarios haciendo que sus servicios sean de mayor calidad.
+			<br><br>
+			- Crean mayor transparencia en los procesos realizados por todas las entidades o actividades como unas votaciones
+		</div>
+	</div>
+</div>
+
+
+<div data-role="panel" id="leftpanel3" data-position="left" data-display="overlay" data-theme="a" class="panel_lateral">
+	<div class="menu_close">
+		<span data-rel="close" class="fa fa-close"></span>
+	</div>
+	<a href="" class="menu_option" onclick="javascript:unlog();"> <span data-rel="close" class="fa fa-power-off"></span> Cerrar sesión</a>
+</div>
+
+
+<!--script type="text/javascript" src="cordova.js"></script-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/nicedt.js"></script>
+<script type="text/javascript" src="js/actions.js"></script>
+</body>
+</html>

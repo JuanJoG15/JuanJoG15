@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.tinegocios.sidip" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>SIDIP</name>
+    <icon src="www/img/sales_icon.png" />
+    <description>
+        SIDIP
+    </description>
+    <author email="esteban@tinegocios.com" href="http://tinegocios.com">
+        SIDIP
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+</widget>
