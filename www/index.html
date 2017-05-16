@@ -114,8 +114,6 @@
 					<input type="text" name="sub_2_numero" id="sub_2_numero" value="">
 					<label for="sub_2_banco">Banco:</label>
 					<input type="text" name="sub_2_banco" id="sub_2_banco" value="">
-					<label for="sub_2_banco">Expira en:</label>
-					<input type="text" name="sub_2_banco" id="sub_2_banco" value="">
 					<label for="sub_2_expira">Expira en:</label>
 					<input type="text" name="sub_2_expira" id="sub_2_expira" value="">
 					<label for="sub_2_nombre">Nombre:</label>
@@ -157,20 +155,32 @@
 			<div id="preform_1" class="noshow preform">
 				<ul data-role="listview" data-inset="true">
 					<li data-role="list-divider" id="tipo"></li>
-					<li><h2>Número</h2><p><strong id="view_sub_1_numero"></strong></p></li>
+					<li><h2>Número</h2><p><strong id="view_sub_2_numero"></strong></p></li>
 					<li><h2>Tipo de sangre</h2><p><strong id="view_sub_1_sangre"></strong></p></li>
 					<li><h2>Fecha de nacimiento</h2><p><strong id="view_sub_1_nacimiento"></strong></p></li>
 					<li><h2>Nombre</h2><p><strong id="view_sub_1_nombre"></strong></p></li>
 					<li><h2>Fecha de expedición</h2><p><strong id="view_sub_1_exp"></strong></p></li>
 					<li><h2>Lugar de nacimiento</h2><p><strong id="view_sub_1_lugar_nac"></strong></p></li>
 					<li><h2>Sexo</h2><p><strong id="view_sub_1_sexo"></strong></p></li>
-					<li><h2>Foto</h2><p><strong id="view_sub_1_foto"></strong></p></li>
 				</ul>
 				<div style="text-align: right;">
 					<button class="ui-btn ui-btn-inline" onclick="eliminar()">Eliminar</button>
-					<input type="hidden" name="id_eliminar" id="id_eliminar" value="">
 				</div>
 			</div>
+			<div id="preform_2" class="noshow preform">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider" id="tipo"></li>
+					<li><h2>Número</h2><p><strong id="view_sub_1_numero"></strong></p></li>
+					<li><h2>Banco</h2><p><strong id="view_sub_2_banco"></strong></p></li>
+					<li><h2>Expira en</h2><p><strong id="view_sub_2_expira"></strong></p></li>
+					<li><h2>Nombre</h2><p><strong id="view_sub_2_nombre"></strong></p></li>
+					<li><h2>CCV2</h2><p><strong id="view_sub_2_ccv2"></strong></p></li>
+				</ul>
+				<div style="text-align: right;">
+					<button class="ui-btn ui-btn-inline" onclick="eliminar()">Eliminar</button>
+				</div>
+			</div>
+			<input type="hidden" name="id_eliminar" id="id_eliminar" value="">
 		</div>
 	</div>
 </div>
